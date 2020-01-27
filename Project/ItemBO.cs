@@ -11,7 +11,7 @@ namespace Project
         static List<Item> litem = new List<Item>();
         static List<SubCategory> lsc = new List<SubCategory>();
         public void AddItem(int sid,int ino, int cid, int scid, string name, string cname, string scname, int noi, int price, string desc, string cdesc, string scdesc)
-        {
+        {   
 
             SubCategory cat = new SubCategory(cid, scid, cname, scname, cdesc, scdesc);
             Item item = new Item(sid,ino,scid,name, noi, price, desc);
@@ -45,7 +45,7 @@ namespace Project
         }
         public void DisplayProducts()
         {
-            
+               
             Console.WriteLine("Category Id \t Category Name \t  Category Desc");
             foreach (Category i in lsc)
             {
@@ -57,6 +57,8 @@ namespace Project
           
             foreach (SubCategory i in lsc)
             {
+
+                
                 if (i.cid == ch)
                 {
              
@@ -78,28 +80,59 @@ namespace Project
         public void Search()
         {
                 int f = 0;
-            string s = "";
+                string s = "";
+            Console.WriteLine("Search Menu");
+            Console.WriteLine("1.Search By Name");
+            Console.WriteLine("2.Search By Price");
+            Console.WriteLine("Enter your choice");
+            int ch = int.Parse(Console.ReadLine());
+            if (ch == 1)
+            {
                 Console.WriteLine("Enter Item Name that you want to search");
                 String name = Console.ReadLine();
                 foreach (Item i in litem)
                 {
-              //  Console.WriteLine("For loop");
-                if (i.name == name)
-                {
-                //    Console.WriteLine("if ");
-                    s = i.ino + "\t\t" + i.name + "\t\t" + i.noi + "\t\t" + i.price + "\t\t" + i.desc + "\n";
-                    f = 0;
+                    if (i.name == name)
+                    {
+                        s = i.ino + "\t\t" + i.name + "\t\t" + i.noi + "\t\t" + i.price + "\t\t" + i.desc + "\n";
+                        f = 0;
+                    }
+                    else
+                        f = 1;
                 }
+
+                if (f == 1)
+                    Console.WriteLine("Item Not Found");
                 else
-                    f = 1;
+                {
+                    Console.WriteLine("Item Id \t Item Name \t Item Quantity \t Item Price \t Item Description");
+                    Console.WriteLine(s);
                 }
-            
-            if (f == 1)
-                Console.WriteLine("Item Not Found");
-            else
+            }
+            if(ch==2)
             {
-                Console.WriteLine("Item Id \t Item Name \t Item Quantity \t Item Price \t Item Description");
-                Console.WriteLine(s);
+                Console.WriteLine("Search By Price Menu");
+                Console.WriteLine("1.Display Low price to High price");
+                Console.WriteLine("2.Display High price to Low Price");
+                int ch1 = int.Parse(Console.ReadLine());
+                if(ch1==1)
+                {
+                    List<Item> aolitem = litem.OrderBy(a=> a.price).ToList();
+                    foreach(var i in aolitem)
+                    {
+                        
+                        Console.WriteLine(i.ino + "\t\t" + i.name + "\t\t" + i.noi + "\t\t" + i.price + "\t\t" + i.desc);
+                    }
+                }
+                else if(ch==2)
+                {
+                    List<Item> aolitem = litem.OrderByDescending(a => a.price).ToList();
+                    foreach (var i in aolitem)
+                    {
+
+                        Console.WriteLine(i.ino + "\t\t" + i.name + "\t\t" + i.noi + "\t\t" + i.price + "\t\t" + i.desc);
+                    }
+                }
             }
         }
     }

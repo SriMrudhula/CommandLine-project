@@ -6,8 +6,8 @@ namespace Project
     class Seller
     {
         int id;
-        string name, phno, cname, gstin, email;
-        public Seller(int id,string name,string phno, string email, string cname,string gstin)
+        string name, phno, cname, gstin, email,pwd;
+        public Seller(int id,string name,string pwd,string phno, string email, string cname,string gstin)
         {
             this.id = id;
             this.name = name;
@@ -15,6 +15,7 @@ namespace Project
             this.cname = cname;
             this.gstin = gstin;
             this.email = email;
+            this.pwd = pwd;
         }
 
         public int Id { get => id; set => id = value; }
@@ -23,6 +24,7 @@ namespace Project
         public string Cname { get => cname; set => cname = value; }
         public string Gstin { get => gstin; set => gstin = value; }
         public string Email { get => email; set => email = value; }
+        public string Pwd { get => pwd; set => pwd = value; }
 
         ItemBO ibo = new ItemBO();
 
@@ -53,8 +55,7 @@ namespace Project
                 Console.WriteLine("Enter Price of Item:");
                 int price= int.Parse(Console.ReadLine());
                 Console.WriteLine("Enter Description for item");
-                string desc = Console.ReadLine();
-                
+                string desc = Console.ReadLine();    
                 ibo.AddItem(id,ino,cid,scid,name,cname,scname,noi,price,desc,cdesc,scdesc);
 
             }
@@ -73,6 +74,7 @@ namespace Project
         {
             ibo.DisplaySellerProducts();
         }
+
 
     }
 }

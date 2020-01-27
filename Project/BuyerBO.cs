@@ -10,15 +10,16 @@ namespace Project
     {
 
         int id;
-        string name, phno, email;
+        string name, phno, email,pwd;
         ItemBO ibo = new ItemBO();
-        public BuyerBO(int id,string name,string phno,string email)
+        public BuyerBO(int id,string name,string pwd,string phno,string email)
         {
             this.id = id;
             this.name = name;
             this.phno = phno;
             this.email = email;
-            Buyer b = new Buyer(this.id, this.name, this.phno, this.email);
+            this.pwd = pwd;
+            Buyer b = new Buyer(this.id, this.name,this.pwd, this.phno, this.email);
         }
         public void Search()
         {

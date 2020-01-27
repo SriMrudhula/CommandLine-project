@@ -13,7 +13,7 @@ namespace Project
         public string desc,name;
 
         public Item(int sid,int ino,int scid,string name,int noi,int price,string desc)
-        {
+        { 
             this.sid = sid;
             this.ino = ino;
             this.name = name;
