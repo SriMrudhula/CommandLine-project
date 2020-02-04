@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNetCore.Http
+@model EmartProject2.Models.Seller
+@{
+    ViewData["Title"] = "CreateDashboard";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>CreateDashboard</h1>
+<h4>Welcome @Context.Session.GetString("Uname").ToString()</h4>
+<h4>Welcome @ViewBag.Name</h4>
+

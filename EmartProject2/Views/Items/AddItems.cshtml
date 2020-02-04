@@ -1,0 +1,61 @@
+﻿@model EmartProject2.Models.Item
+
+@{
+    ViewData["Title"] = "AddItems";
+    Layout="~/Views/Shared/_Layout1.cshtml";
+}
+<h1>AddItems</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddItems">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Sname" class="control-label">Your Name</label>
+                <input asp-for="Sname" class="form-control" />
+                <span asp-validation-for="Sname" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Cname" class="control-label">Category Name</label>
+                <input asp-for="Cname" class="form-control" />
+                <span asp-validation-for="Cname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Scname" class="control-label">SubCategory Name</label>
+                <input asp-for="Scname" class="form-control" />
+                <span asp-validation-for="Scname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Item Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Desc" class="control-label">Description</label>
+                <input asp-for="Desc" class="form-control" />
+                <span asp-validation-for="Desc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Noi" class="control-label">Number of Items</label>
+                <input asp-for="Noi" class="form-control" />
+                <span asp-validation-for="Noi" class="text-danger"></span>
+            </div>
+            <div>
+                @ViewBag.message
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Sellers" asp-action="CreateDashboard">Home</a>
+</div>
